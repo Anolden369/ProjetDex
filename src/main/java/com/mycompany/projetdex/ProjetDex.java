@@ -14,6 +14,7 @@ import java.util.Scanner;
 public class ProjetDex {
     private static ArrayList<Version> versions = new ArrayList<Version>();
     private static ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
+    private static ArrayList<String> listype = new ArrayList<String>();
     private static Scanner scanner = new Scanner(System.in);
     
     public static void main(String[] args) {
@@ -235,6 +236,7 @@ public class ProjetDex {
                     break;
                 case 3:
                     // afficherParType();
+                    System.out.println(remplirListeTypes(pokemons));
                     Scanner input9 = new Scanner(System.in);
                     System.out.println("Quel type voulez-vous afficher : "
                             + "\n1-Feu"
@@ -250,70 +252,70 @@ public class ProjetDex {
                     int choix10 = Integer.parseInt(input9.next());
                     if(choix10 == 1){
                       for(Pokemon poke : pokemons){
-                          if(poke.getType1() == "Feu"){
+                          if(poke.getType1().contains("Feu")){
                               System.out.println(poke);
                           }
                       }
                     }
                     else if(choix10 == 2){
                       for(Pokemon poke : pokemons){
-                          if(poke.getType1() == "Combat"){
+                          if(poke.getType1().contains("Combat")){
                               System.out.println(poke);
                           }
                       }
                     }
                     else if(choix10 == 3){
                       for(Pokemon poke : pokemons){
-                          if(poke.getType1() == "Electrique"){
+                          if(poke.getType1().contains("Electrique")){
                               System.out.println(poke);
                           }
                       }
                     }
                     else if(choix10 == 4){
                       for(Pokemon poke : pokemons){
-                          if(poke.getType1() == "Eau"){
+                          if(poke.getType1().contains("Eau")){
                               System.out.println(poke);
                           }
                       }
                     }
                     else if(choix10 == 5){
                       for(Pokemon poke : pokemons){
-                          if(poke.getType1() == "Poison"){
+                          if(poke.getType1().contains("Poison")){
                               System.out.println(poke);
                           }
                       }
                     }
                     else if(choix10 == 6){
                       for(Pokemon poke : pokemons){
-                          if(poke.getType1() == "Glace"){
+                          if(poke.getType1().contains("Glace")){
                               System.out.println(poke);
                           }
                       }
                     }
                     else if(choix10 == 7){
                       for(Pokemon poke : pokemons){
-                          if(poke.getType1() == "Psy"){
+                          if(poke.getType1().contains("Psy")){
                               System.out.println(poke);
                           }
                       }
                     }
                     else if(choix10 == 8){
                       for(Pokemon poke : pokemons){
-                          if(poke.getType1() == "Plante"){
+                          if(poke.getType1().contains("Plante")){
                               System.out.println(poke);
                           }
                       }
                     }
                     else if(choix10 == 9){
                       for(Pokemon poke : pokemons){
-                          if(poke.getType1() == "Roche"){
+                          if(poke.getType1().contains("Roche")){
                               System.out.println(poke);
                           }
                       }
                     }
                     else if(choix10 == 10){
                       for(Pokemon poke : pokemons){
-                          if(poke.getType1() == "Spectre"){
+                          if(poke.getType1().contains("Spectre")){
                               System.out.println(poke);
                           }
                       }
@@ -341,9 +343,10 @@ public class ProjetDex {
         }
 
     }
+    
     public static ArrayList<String> remplirListeTypes(ArrayList<Pokemon> p)
     {
-        ArrayList<String> listype = new ArrayList<String>();
+        
         for(Pokemon tempokemon : p)
         {
             if(listype.contains(tempokemon.getType1()) == false)
@@ -354,11 +357,9 @@ public class ProjetDex {
             {
                 listype.add(tempokemon.getType2());
             }
+            listype.remove("null");
         }
-        for(String tempType :listype)
-        {
-            System.out.println(tempType);
-        }
+        
         return listype;
     }
 }
